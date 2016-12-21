@@ -9,7 +9,7 @@ import { AppState } from './app.service';
  * App Component
  * Top Level Component
  */
-const style=require('../less/style.less');
+const style=require('./less/style.less');
 @Component({
   selector: 'app',
   encapsulation: ViewEncapsulation.None,

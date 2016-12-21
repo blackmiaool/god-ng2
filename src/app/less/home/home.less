@@ -2,6 +2,7 @@
 @left-tabs-width: 60px;
 @left-list-width: 220px;
 @right-info-width: 210px;
+@res-path:"../assets/img";
 .avatar {
     img {
         background-color: wheat;
@@ -66,13 +67,13 @@
                 text-shadow: black 0px 0px 18px;
             }
             &[data-tab-name="groups"] {
-                .border-image(url(../res/deep_ui/btns.png) 84 176 187 624 fill repeat repeat);
+                .border-image(url("@{res-path}/deep_ui/btns.png") 84 176 187 624 fill repeat repeat);
             }
             &[data-tab-name="search"] {
-                .border-image(url(../res/deep_ui/btns.png) 84 85 178 714 fill repeat repeat);
+                .border-image(url("@{res-path}/deep_ui/btns.png") 84 85 178 714 fill repeat repeat);
             }
             &[data-tab-name="other"] {
-                .border-image(url(../res/deep_ui/btns.png) 265 811 0 0 fill repeat repeat);
+                .border-image(url("@{res-path}/deep_ui/btns.png") 265 811 0 0 fill repeat repeat);
             }
         }
     }
@@ -226,7 +227,7 @@
                 border-style: solid;
                 @scale: 0.6;
                 border-width: 10px * @scale 27px * @scale 12px * @scale 11px * @scale;
-                .border-image( url(/res/deep_ui/input_focus.png) 10 27 12 11 fill repeat);
+                .border-image( url("@{res-path}/deep_ui/input_focus.png") 10 27 12 11 fill repeat);
             }
             &:focus {
                 &:before {

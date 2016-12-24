@@ -31,40 +31,9 @@
         </li>
     </ul>
 </div>
-<div class="main-area-wrap">
-    <main class="deep-panel">
-        <div class="message-wrap">
-            <div class="avatar">
-                <img src="{{imgPath}}/avatar.gif" alt="">
-            </div>
-            <message></message>
-        </div>
-    </main>
-    <header class="">
-        <!--
-            <span class="avatar deep-avatar">
-                    <img src="res/avatar2.jpeg" alt="">
-            </span>
--->
-        <span class="name">MDZZ</span>
-    </header>
-    <footer>
-        <img src="{{imgPath}}/deep_ui/little_box1.png" class="bg-img left">
-        <img src="{{imgPath}}/deep_ui/little_box2.png" class="bg-img right">
-        <div class="bg-img middle">
-            <img src="{{imgPath}}/deep_ui/little_box3.png" class="bg-img">
-        </div>
-        <div class="tools-wrap">
-            <i class="glyphicon glyphicon-heart-empty" data-tool="emotion"></i>
-            <i class="glyphicon glyphicon-picture" data-tool="img"></i>
-        </div>
-        <div class="input-wrap" contenteditable="">
-        </div>
-        <div class="send-wrap">
-            <i class="glyphicon glyphicon-send" data-tool="img"></i>
-        </div>
-    </footer>
-</div>
+<room class="main-area-wrap" *ngFor="let room of rooms;" [room]="room">
+
+</room>
 <div class="right-info-wrap">
     <div class="bulletin">
         <header>Bulletin</header>

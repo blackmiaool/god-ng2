@@ -19,6 +19,7 @@ import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 import { XLarge } from './home/x-large';
 import { MessageComponent } from './home/message';
+import { RoomComponent } from './home/room';
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
@@ -43,6 +44,7 @@ type StoreType = {
     NoContentComponent,
     XLarge,  
     MessageComponent,
+    RoomComponent,
   ],
   imports: [ // import Angular's modules
     BrowserModule,

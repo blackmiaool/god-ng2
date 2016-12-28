@@ -1,10 +1,6 @@
 <main class="deep-panel">
-    <div class="message-wrap">
-        <div class="avatar">
-            <img src="{{imgPath}}/avatar.gif" alt="">
-        </div>
-        <message></message>
-    </div>
+    <message *ngFor="let message of room.messages" [message]="message">                
+    </message>
 </main>
 <header>
     <span class="name">{{room.name}}</span>
@@ -19,9 +15,11 @@
         <i class="glyphicon glyphicon-heart-empty" data-tool="emotion"></i>
         <i class="glyphicon glyphicon-picture" data-tool="img"></i>
     </div>
-    <div class="input-wrap" contenteditable="">
+    
+    <div class="input-wrap" contenteditable="" [(contenteditableModel)]="input">
     </div>
-    <div class="send-wrap">
+    <div class="send-wrap clickable"   (click)="send()">
+       <div class="mask clickable"></div>
         <i class="glyphicon glyphicon-send" data-tool="img"></i>
     </div>
 </footer>

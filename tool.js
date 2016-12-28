@@ -11,7 +11,7 @@ function createThing(path, name, type) {
 
     function generate() {
         mkdirp.sync(`${path}/${name}`);
-        fs.writeFileSync(`${path}/${name}/index.js`, `export * from './${name}.${type}';`);
+        fs.writeFileSync(`${path}/${name}/index.ts`, `export * from './${name}.${type}';`);
         if (type === "component") {
             fs.writeFileSync(`${path}/${name}/${name}.${type}.ts`, `
 import { Component } from '@angular/core';
@@ -45,9 +45,13 @@ export class ${upperFirstLatter(name)}Component {
 }
 const repl = require('repl');
 
-function initializeContext(context) {  
-    Object.assign(context,{createThing})
+function initializeContext(context) {
+    Object.assign(context, {
+        createThing
+    })
 }
 
-const r = repl.start({prompt: '>'});
+const r = repl.start({
+    prompt: '>'
+});
 initializeContext(r.context);

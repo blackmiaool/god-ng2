@@ -20,6 +20,10 @@ import { NoContentComponent } from './no-content';
 import { XLarge } from './home/x-large';
 import { MessageComponent } from './home/message';
 import { RoomComponent } from './home/room';
+
+import {ContenteditableModel} from './home/contenteditable/contenteditablemodel.directive';
+
+
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
@@ -45,7 +49,8 @@ type StoreType = {
     XLarge,  
     MessageComponent,
     RoomComponent,
-  ],
+      ContenteditableModel,
+  ],    
   imports: [ // import Angular's modules
     BrowserModule,
     FormsModule,

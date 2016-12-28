@@ -1,14 +1,20 @@
 import {
     Component,
-    Input
+    Input,
+    EventEmitter,
+    Output
 }
 from '@angular/core';
 
-class Room() {
+import {
+    Message,
+    MessageType
+}
+from '../message';
+
+export class Room {
     name: string;
-    time: string;
-    type: string;
-    content: string;
+    messages: Message[];
 }
 
 @Component({
@@ -16,13 +22,32 @@ class Room() {
     templateUrl: './room.component.html'
 })
 export class RoomComponent {
+    @Input()
+    room: Room;
+    @Output()
+    onSend = new EventEmitter < Message > ();
+    input: string;
+    imgPath = "assets/img";
     constructor() {
 
     }
 
-    @Input()
-    room;
-    imgPath = "assets/img";
+    send() {
+        this.onSend.emit({
+            name: 'blackmiaool',
+            time: Date.now() + '',
+            type: MessageType.Text,
+            content: this.input
+        });
+        //        this.onSend &&
+        //            this.onSend({
+        //                name: 'blackmiaool',
+        //                time: Date.now() + '',
+        //                type: MessageType.Text,
+        //                content: this.input
+        //            }, this.room.name);
+    }
+
     ngOnInit() {
 
     }

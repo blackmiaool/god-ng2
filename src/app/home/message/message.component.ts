@@ -1,16 +1,33 @@
-import { Component } from '@angular/core';
-
+import {
+    Component,
+    Input
+}
+from '@angular/core';
+export enum MessageType {
+    Text,
+    Code,
+    Image,
+    Iframe
+}
+export class Message {
+    name: string;
+    time: string;
+    type: MessageType;
+    content: string;
+}
 
 @Component({
-  selector: 'message',
-  templateUrl: './message.component.html'
+    selector: 'message',
+    templateUrl: './message.component.html'
 })
 export class MessageComponent {
-  constructor() {
+    @Input()
+    message: Message;
+    constructor() {
 
-  }
-  ngOnInit() {
-    console.log('hello `Home` component');
-    // this.title.getData().subscribe(data => this.data = data);
-  }
+    }
+    imgPath = "assets/img";
+    ngOnInit() {
+        // this.title.getData().subscribe(data => this.data = data);
+    }
 }

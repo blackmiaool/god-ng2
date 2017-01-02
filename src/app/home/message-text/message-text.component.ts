@@ -19,7 +19,7 @@ export type textMessageType = [{
     selector: 'message-text',
     templateUrl: './message-text.component.html'
 })
-export class Message - textComponent {
+export class MessageTextComponent {
     constructor() {
 
     }

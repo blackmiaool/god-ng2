@@ -3,12 +3,11 @@ import {
     Input,
     EventEmitter,
     Output,
-    OnChanges,
     ElementRef
 }
 from '@angular/core';
 
-//var $ = require("jquery");
+const $ = require("jquery");
 
 import {
     Message,
@@ -25,7 +24,7 @@ export class Room {
     selector: 'room',
     templateUrl: './room.component.html'
 })
-export class RoomComponent implements OnChanges {
+export class RoomComponent {
     @Input()
     room: Room;
     @Output()
@@ -33,25 +32,25 @@ export class RoomComponent implements OnChanges {
     input: string;
     imgPath = "assets/img";
     constructor(private elRef: ElementRef) {
-
+        const $dom = $(elRef.nativeElement);
+        const $$ = $dom.find.bind($dom);
 
         setTimeout(function () {
-            var target = elRef.nativeElement.querySelector(".message-wrap");
-            console.log(target)
-            console.log(target)
+            const $scroll = $$(".message-wrap");
+            console.log($scroll)
                 // create an observer instance
-            var observer = new MutationObserver(function (mutations) {
+            const observer = new MutationObserver(function (mutations) {
+                $scroll.scrollTop(100000);
                 mutations.forEach(function (mutation) {
-                    console.log(mutation.type);
+                    console.log(mutation.type, mutation);
                 });
             });
 
             // configuration of the observer:
-            var config = {
-                attributes: true,
+            const config = {
                 childList: true,
-                characterData: true
             };
+            observer.observe($scroll[0], config);
         });
 
 

@@ -86,8 +86,8 @@ type StoreType = {
 
 class MyErrorHandler implements ErrorHandler {
     handleError(error) {
-        console.log(1)
-            // do something with the exception
+        console.error(error.message.slice(0, 300));
+        // do something with the exception
     }
 }
 
@@ -164,7 +164,7 @@ class AppModule {
     }
 
 }
-console.log(AppModule)
+
 export {
     AppModule
 };

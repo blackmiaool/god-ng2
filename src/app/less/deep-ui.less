@@ -3,20 +3,20 @@
 @icon-path: "@{res-folder}/deep_ui/icon";
 @deep-bg: #1f1916;
 @import "mixin.less";
- 
-.deep-header{
+.deep-header {
     .deep-header();
 }
-.deep-header(@height:100px) {
+
+.deep-header(@height: 100px) {
     background-image: url("@{path}/red_header.png");
     background-repeat: no-repeat;
-    background-size: contain;    
+    background-size: contain;
     height: @height;
     width: @height *632px/176px;
     margin: auto;
     text-align: center;
     .transform(translateY(-35%));
-    background-position-y:@height * 0.04;
+    background-position-y: @height * 0.04;
     >.deep-header-text {
         color: wheat;
         font-size: 22px;
@@ -37,11 +37,11 @@
         border-width: @gap*@scale;
         .border-image(url("@{path}/red_panel_standard.png") @gapNum @gapNum @gapNum @gapNum fill repeat);
         border-style: solid;
-//border-width: 25px 26px 25px 24px;
-//-moz-border-image: url(red_panel_standard.png) 25 26 25 24 repeat;
-//-webkit-border-image: url(red_panel_standard.png) 25 26 25 24 repeat;
-//-o-border-image: url(red_panel_standard.png) 25 26 25 24 repeat;
-//border-image: url(red_panel_standard.png) 25 26 25 24 fill repeat;
+        //border-width: 25px 26px 25px 24px;
+        //-moz-border-image: url(red_panel_standard.png) 25 26 25 24 repeat;
+        //-webkit-border-image: url(red_panel_standard.png) 25 26 25 24 repeat;
+        //-o-border-image: url(red_panel_standard.png) 25 26 25 24 repeat;
+        //border-image: url(red_panel_standard.png) 25 26 25 24 fill repeat;
     }
     >main {
         .abs-fill;
@@ -61,7 +61,7 @@
 
 .deep-panel-bg {}
 
-.red-scroll-shadow-wrap {
+.deep-scroll-shadow-wrap {
     &:after {
         content: "";
         background: linear-gradient(to bottom, rgb(30, 24, 21), transparent);
@@ -72,13 +72,13 @@
         left: 0;
         z-index: 1;
     }
-    .red-scroll {
+    .deep-scroll {
         .abs-fill;
         padding-top: 10px;
     }
 }
 
-.red-scroll {
+.deep-scroll {
     overflow: auto;
     &::-webkit-scrollbar {
         width: 8px;
@@ -93,25 +93,23 @@
     }
 }
 
-.red-top-shadow {}
-
 .deep-icon {
-    .square(80px); 
+    .square(80px);
     .clickable;
     position: relative;
     background-size: contain;
-    background-repeat: no-repeat;    
-    &:not(.no-bg){
-        background-image: url("@{path}/btn_circle_red.png");    
+    background-repeat: no-repeat;
+    &:not(.no-bg) {
+        background-image: url("@{path}/btn_circle_red.png");
     }
-    &.no-bg{
-        &:before {        
-        .square(100%);
+    &.no-bg {
+        &:before {
+            .square(100%);
         }
-        &:after{
+        &:after {
             display: none;
         }
-        &:active{
+        &:active {
             opacity: 0.5;
         }
     }
@@ -199,11 +197,13 @@
     .set-color(green);
     .set-color(yellow);
 }
-.deep-avatar{
+
+.deep-avatar {
     background: url("@{path}/item_icon_cropped.png") center center no-repeat;
     background-size: cover;
     display: inline-block;
 }
+
 .deep-normal-item {
     .clickable;
     @rate: 0.3;
@@ -444,7 +444,7 @@
         vertical-align: middle;
         margin-right: 4px;
     }
-    [type="checkbox"]:checked+ .deep-checkbox {
+    [type="checkbox"]:checked+.deep-checkbox {
         &:before {
             content: "";
             .square(9px);
@@ -511,7 +511,7 @@
             }
         }
     }
-    .set-color(blue);    
+    .set-color(blue);
     .set-color(darkgreen);
     .set-color(darkpurple);
     .set-color(darkred);
@@ -519,9 +519,6 @@
     .set-color(purple);
     .set-color(red);
     .set-color(yellow);
-    
-    
-    
     //    
     //    &.deep-power {        
     //        &>.deep-fill {

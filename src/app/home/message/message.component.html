@@ -6,8 +6,8 @@
         {{message.name}} {{message.time | date:'H:m:s'}}
     </div>
     <div class="content-wrap">
-        <div class="content">
-            <p>{{message.content}}</p>
+        <div class="content" [ngSwitch]="message.type">
+            <p *ngSwitchCase="messageType.Text">{{message.content}}</p>
         </div>
     </div>
 </div>

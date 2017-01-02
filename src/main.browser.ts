@@ -21,7 +21,6 @@ import {
     AppModule
 }
 from './app';
-
 /*
  * Bootstrap our Angular app with a top level NgModule
  */

@@ -14,14 +14,19 @@ header {
 
 main {
     .abs-fill;
-    position: absolute !important;    
+    position: absolute !important;
     top: 28px;
     padding-left: 20px;
     padding-top: 45px;
     padding-right: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 58px;
+    .message-wrap {
+        height: 100%;
+        width: 100%;
+        overflow: auto;
+    }
     message {
-        @import "../message/message.component.less";        
+        @import "../message/message.component.less";
     }
 }
 
@@ -30,7 +35,7 @@ footer {
     left: 6px;
     right: 6px;
     bottom: 5px;
-    @height:50px;
+    @height: 50px;
     height: @height;
     display: flex;
     flex-direction: row;
@@ -83,7 +88,7 @@ footer {
             border-style: solid;
             @scale: 0.6;
             border-width: 10px * @scale 27px * @scale 12px * @scale 11px * @scale;
-//            .border-image( url("@{res-path}/deep_ui/input_focus.png") 10 27 12 11 fill repeat);
+            //            .border-image( url("@{res-path}/deep_ui/input_focus.png") 10 27 12 11 fill repeat);
         }
         &:focus {
             &:before {
@@ -92,17 +97,17 @@ footer {
         }
     }
     .send-wrap {
-        width: 35px;  
+        width: 35px;
         height: 100%;
-        line-height: @height;      
+        line-height: @height;
         position: relative;
         text-align: center;
         width: 28px;
         padding-right: 10px;
-        &:active{
+        &:active {
             color: darkgoldenrod;
         }
-        .mask{
+        .mask {
             .abs-fill;
         }
     }

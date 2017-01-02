@@ -13,7 +13,7 @@ export class Message {
     name: string;
     time: string;
     type: MessageType;
-    content: string;
+    content: any;
 }
 
 @Component({
@@ -26,6 +26,7 @@ export class MessageComponent {
     constructor() {
 
     }
+    private messageType = MessageType;
     imgPath = "assets/img";
     ngOnInit() {
         // this.title.getData().subscribe(data => this.data = data);

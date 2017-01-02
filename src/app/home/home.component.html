@@ -31,9 +31,12 @@
         </li>
     </ul>
 </div>
-<room *ngFor="let room of rooms;" [room]="room" (onSend)="onRoomSend($event,room)">
+<div class="room-wrap">
+    <room *ngFor="let room of rooms;" [room]="room" (onSend)="onRoomSend($event,room)">
 
-</room>
+    </room>
+</div>
+
 <div class="right-info-wrap">
     <div class="bulletin">
         <header>Bulletin</header>

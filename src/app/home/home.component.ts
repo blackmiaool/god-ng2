@@ -15,7 +15,9 @@ import {
     Room
 } from './room/room.component.ts'
 
-
+import {
+    NgZone
+} from '@angular/core';
 
 console.log(Room);
 
@@ -35,47 +37,75 @@ class HomeComponent {
         value: ''
     };
     // TypeScript public modifiers
-    constructor() {
+    constructor(private _ngZone: NgZone) {
 
     }
     rooms: Room[];
     imgPath = "assets/img"
+    messageHooks: Function[] = [];
     ngOnInit() {
         this.rooms = [{
-                name: "MDZZ",
-                messages: [{
-                    name: "blackmiaool",
-                    time: Date.now(),
-                    type: MessageType.Text,
-                    content: "这个风格怎么样2"
+                    name: "MDZZ",
+                    messages: [{
+                        name: "blackmiaool",
+                        time: Date.now() + "",
+                        type: MessageType.Text,
+                        content: "这个风格怎么样2"
                 }, {
-                    name: "blackmiaool",
-                    time: Date.now(),
-                    type: MessageType.Text,
-                    content: "这个风格怎么样3"
+                        name: "blackmiaool",
+                        time: Date.now() + "",
+                        type: MessageType.Text,
+                        content: "这个风格怎么样3"
+                }]
+            },
+                {
+                    name: "god",
+                    messages: [{
+                        name: "blackmiaool",
+                        time: Date.now() + "",
+                        type: MessageType.Text,
+                        content: "这个风格怎么样4"
+                }, {
+                        name: "blackmiaool",
+                        time: Date.now() + "",
+                        type: MessageType.Text,
+                        content: "这个风格怎么样5"
                 }]
             }]
             // this.title.getData().subscribe(data => this.data = data);
+
+        const that = this;
+        window['onMessage'] = function (cb) {
+            that.messageHooks.push(cb);
+        }
+        window['mockMessage'] = function (name, type, content, roomName) {
+            const message = {
+                name,
+                type,
+                content,
+                time: Date.now() + ""
+            };
+
+            that._ngZone.run(function () {
+                that.rooms.forEach(function (room) {
+                    if (room.name === roomName) {
+                        room.messages.push(message);
+                    }
+                });
+
+            });
+        }
     }
     onRoomSend(message, room) {
-        //        const roomName = this.room.name;
-        console.log(message, room, this);
+        //        console.log(message, room, this);
         room.messages.push(message);
-        //        this.rooms.filter(function (room) {
-        //            //            if (room.name === roomName) {
-        //            //
-        //            //            }
-        //        }).forEach(function () {
-        //
-        //        });
-        //        //        messages.push(message);
-        //
-        //        console.log("1", message, room);
-        //        console.log(this);
+
+        this.messageHooks.forEach(function (cb) {
+            cb(message, room);
+        });
     }
     submitState(value: string) {
         console.log('submitState', value);
-        //    this.appState.set('value', value);
         this.localState.value = '';
     }
 }

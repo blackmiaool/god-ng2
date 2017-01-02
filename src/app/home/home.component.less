@@ -2,12 +2,13 @@
 @left-tabs-width: 60px;
 @left-list-width: 220px;
 @right-info-width: 210px;
-@res-path:"../assets/img";
+@res-path: "../assets/img";
 .avatar {
     img {
         background-color: wheat;
     }
 }
+
 .left-tabs-wrap {
     width: @left-tabs-width;
     position: absolute;
@@ -57,7 +58,7 @@
             display: block;
             position: relative;
             height: 40px;
-            width: 40px;            
+            width: 40px;
             border-style: solid;
             border-width: 0;
             &:active {
@@ -80,6 +81,7 @@
     //    84 88 187 714
     .tools {}
 }
+
 .list-wrap {
     width: @left-list-width - 20px;
     position: absolute;
@@ -122,12 +124,21 @@
         }
     }
 }
-room {
+
+.room-wrap {
     .abs-fill;
     left: @left-tabs-width + @left-list-width;
     right: @right-info-width;
-    @import "../home/room/room.component.less";    
+    display: flex;
+    flex-direction: row;
 }
+
+room {
+    position: relative;
+    flex: 1;
+    @import "../home/room/room.component.less";
+}
+
 .right-info-wrap {
     @padding-left: 10px;
     width: @right-info-width - @padding-left * 2;
